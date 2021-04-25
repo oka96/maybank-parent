@@ -56,17 +56,6 @@ public class BatchConfiguration {
                 });
             }
         };
-//        return new FlatFileItemReaderBuilder().name("txnRecordReader")
-//                .linesToSkip(1)
-//                .resource(new ClassPathResource(fileInput))
-//                .lineMapper(new DefaultLineMapper())
-//                .lineTokenizer(new DelimitedLineTokenizer("|"))
-//                .delimited()
-//                .names(new String[]{"accountNumber","trxAmount","description","trxDate","trxTime","customerId"})
-//                .fieldSetMapper(new BeanWrapperFieldSetMapper(){{
-//                   setTargetType(RawTxnRecord.class);
-//        }}).build();
-
         reader.setName("txnRecordReader");
         reader.setLinesToSkip(1);
         reader.setResource(new ClassPathResource(fileInput));

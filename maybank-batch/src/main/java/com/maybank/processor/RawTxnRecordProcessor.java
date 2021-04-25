@@ -10,6 +10,14 @@ public class RawTxnRecordProcessor implements ItemProcessor<RawTxnRecord, RawTxn
 
     @Override
     public RawTxnRecord process(RawTxnRecord item) throws Exception {
+//        String record = "('"+item.getAccountNumber()+"',"
+//                +item.getTrxAmount()+",'"
+//                +item.getDescription()+"','"
+//                +item.getTrxDate()+"','"
+//                +item.getTrxTime()+"','"
+//                +item.getCustomerId()+"'),";
+//        System.out.println(record);
+
         LOGGER.info("Processing {}", item.getAccountNumber());
         return item;
     }
