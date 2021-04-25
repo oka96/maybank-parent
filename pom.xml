@@ -6,6 +6,7 @@
     <modules>
         <module>maybank-application</module>
         <module>maybank-service</module>
+        <module>maybank-batch</module>
     </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
