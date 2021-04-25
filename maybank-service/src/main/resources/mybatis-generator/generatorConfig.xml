@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- call mvn mybatis-generator:generate -e -->
+    <properties resource="mybatis-generator/application.properties"/>
+
+    <!-- one database one context -->
+    <context id="MySqlContext" targetRuntime="MyBatis3">
+        <property name="autoDelimitKeywords" value="true" />
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+
+<!--        &lt;!&ndash; 格式化java代码 &ndash;&gt;-->
+<!--        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>-->
+<!--        &lt;!&ndash; 格式化XML代码 &ndash;&gt;-->
+<!--        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>-->
+
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+        <!-- comment -->
+        <commentGenerator >
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <!-- jdbc connection -->
+        <jdbcConnection
+                driverClass="${database.driveClassName}"
+                connectionURL="${database.url}"
+                userId="${database.username}"
+                password="${database.password}">
+        </jdbcConnection>
+
+        <!-- type conversion -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.maybank.dataaccess.${database.schema}.entity" targetProject="src/main/java" >
+            <property name="enableSubPackages" value="false"/>
+            <property name="constructorBased" value="false"/>
+            <property name="trimStrings" value="false"/>
+            <property name="immutable" value="false"/>
+        </javaModelGenerator>
+
+        <!-- generate mapxml file -->
+        <sqlMapGenerator targetPackage="mapping/${database.schema}/gen" targetProject="src/main/resources" >
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- general mapxml client，dao -->
+        <javaClientGenerator targetPackage="com.maybank.dataaccess.${database.schema}.dao.gen" targetProject="src/main/java" type="XMLMAPPER" >
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <table
+                schema=""
+                tableName=""
+                domainObjectName=""
+                mapperName=""
+                enableCountByExample="false"
+                enableDeleteByExample="false"
+                enableDeleteByPrimaryKey="false"
+                enableSelectByExample="false"
+                selectByPrimaryKeyQueryId="false"
+                selectByExampleQueryId="false"
+                escapeWildcards="true">
+        </table>
+    </context>
+</generatorConfiguration>
