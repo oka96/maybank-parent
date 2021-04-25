@@ -85,7 +85,7 @@ public class TxnRecordServiceImpl implements TxnRecordService {
     @Override
     public void insert(TxnRecordBO txnRecordBO) {
         TxnRecord txnRecord = new TxnRecord();
-        txnRecord.setAccountnumber(txnRecordBO.getAccountNumber());
+        txnRecord.setAccountNumber(txnRecordBO.getAccountNumber());
         txnRecord.setCustomerId(txnRecordBO.getCustomerId());
         txnRecord.setDescription(txnRecordBO.getDescription());
         txnRecord.setTrxAmount(txnRecordBO.getTrxAmount());

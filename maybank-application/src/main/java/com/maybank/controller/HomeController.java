@@ -1,6 +1,6 @@
 package com.maybank.controller;
 
-import com.maybank.model.TxnRecord;
+import com.maybank.model.TxnRecordBO;
 import com.maybank.service.TxnRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +33,7 @@ public class HomeController {
             currentPage = Integer.valueOf(pageNumber);
         }
         System.out.println("pageNumber " + pageNumber + " accountNumber " + accountNumber);
-        List<TxnRecord> txnRecords = txnRecordService.getTransaction(customerId, accountNumber, description, currentPage, pageSize);
+        List<TxnRecordBO> txnRecords = txnRecordService.getTransaction(customerId, accountNumber, description, currentPage, pageSize);
         int txnCount = txnRecordService.getTransactionCount(customerId, accountNumber, description);
         int totalPages = txnCount / pageSize;
 
@@ -47,6 +47,9 @@ public class HomeController {
         model.addAttribute("transactions", txnRecords);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPage", currentPage);
+
+        TxnRecordBO txnRecordBO = new TxnRecordBO("123", 1000, "des", "111", "222", "111");
+        txnRecordService.insert(txnRecordBO);
         return "home";
     }
 

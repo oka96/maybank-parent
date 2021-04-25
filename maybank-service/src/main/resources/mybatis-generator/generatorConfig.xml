@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!-- call mvn mybatis-generator:generate -e -->
-    <properties resource="mybatis-generator/application.properties"/>
+    <properties resource="mybatis-generator/database.properties"/>
 
     <!-- one database one context -->
     <context id="MySqlContext" targetRuntime="MyBatis3">
@@ -56,18 +56,41 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
-        <table
-                schema=""
-                tableName=""
-                domainObjectName=""
-                mapperName=""
-                enableCountByExample="false"
-                enableDeleteByExample="false"
-                enableDeleteByPrimaryKey="false"
-                enableSelectByExample="false"
-                selectByPrimaryKeyQueryId="false"
-                selectByExampleQueryId="false"
-                escapeWildcards="true">
+<!--        <table-->
+<!--                schema="${database.schema}"-->
+<!--                tableName="txn_record"-->
+<!--                domainObjectName="TxnRecordDO"-->
+<!--                mapperName="BaseTxnRecordDao"-->
+<!--                enableCountByExample="false"-->
+<!--                enableDeleteByExample="false"-->
+<!--                enableDeleteByPrimaryKey="false"-->
+<!--                enableSelectByExample="false"-->
+<!--                selectByPrimaryKeyQueryId="false"-->
+<!--                selectByExampleQueryId="false"-->
+<!--                escapeWildcards="true" />-->
+
+<!--        <table-->
+<!--                schema="${database.schema}"-->
+<!--                tableName="txn_record"-->
+<!--                domainObjectName="TxnRecordDO"-->
+<!--                mapperName="BaseTxnRecordDao"-->
+<!--                enableCountByExample="false"-->
+<!--                enableDeleteByExample="false"-->
+<!--                enableDeleteByPrimaryKey="false"-->
+<!--                enableSelectByExample="false"-->
+<!--                selectByPrimaryKeyQueryId="false"-->
+<!--                selectByExampleQueryId="false"-->
+<!--                escapeWildcards="true" />-->
+
+        <table tableName="txn_record"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false" />
+            <!-- 数据库表主键 -->
+            <generatedKey column="txn_id" sqlStatement="Mysql" identity="true" />
         </table>
     </context>
 </generatorConfiguration>
