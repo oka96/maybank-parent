@@ -23,7 +23,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
             LOGGER.info("!!! JOB FINISHED! Time to verify the results");
 
             String query = "SELECT account_number, trx_amount, description, trx_date, trx_time, customer_id FROM txn_record";
-            jdbcTemplate.query(query, (rs, row) -> new RawTxnRecord(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)))
+            jdbcTemplate.query(query, (rs, row) -> new RawTxnRecord(rs.getString(1), rs.getFloat(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)))
                     .forEach(txnRecord -> LOGGER.info("Found < {} > in the database.", txnRecord));
         }
     }

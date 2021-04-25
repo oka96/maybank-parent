@@ -3,7 +3,7 @@ package com.maybank.model;
 public class RawTxnRecord {
     private int txnId;
     private String accountNumber;
-    private String trxAmount;
+    private float trxAmount;
     private String description;
     private String trxDate;
     private String trxTime;
@@ -11,7 +11,7 @@ public class RawTxnRecord {
 
     public RawTxnRecord(){}
 
-    public RawTxnRecord(String accountNumber, String trxAmount,
+    public RawTxnRecord(String accountNumber, float trxAmount,
                        String description, String trxDate,
                        String time, String customerId) {
         this.accountNumber = accountNumber;
@@ -38,11 +38,11 @@ public class RawTxnRecord {
         this.accountNumber = accountNumber;
     }
 
-    public String getTrxAmount() {
+    public float getTrxAmount() {
         return trxAmount;
     }
 
-    public void setTrxAmount(String trxAmount) {
+    public void setTrxAmount(float trxAmount) {
         this.trxAmount = trxAmount;
     }
 

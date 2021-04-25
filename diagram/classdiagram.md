@@ -4,7 +4,7 @@ namespace com.maybank.application #DDDDDD {
     class UserController
     class HomeController
 
-    UserController *-- com.maybank.service.TxnRecordService
+    HomeController *-- com.maybank.service.TxnRecordService
 }
 
 namespace com.maybank.service #DDDDDD {
@@ -12,10 +12,6 @@ namespace com.maybank.service #DDDDDD {
     class TxnRecordServiceImpl implements TxnRecordService
     interface TxnRecordExtMapper
     TxnRecordServiceImpl *-- TxnRecordExtMapper
-}
-
-namespace com.maybank.batch #DDDDDD {
-    
 }
 
 @enduml
