@@ -82,15 +82,14 @@
 <!--                selectByExampleQueryId="false"-->
 <!--                escapeWildcards="true" />-->
 
-        <table tableName="txn_record"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="false" />
-            <!-- 数据库表主键 -->
-            <generatedKey column="txn_id" sqlStatement="Mysql" identity="true" />
-        </table>
+<!--        <table tableName="txn_record"-->
+<!--               enableCountByExample="false"-->
+<!--               enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            <property name="useActualColumnNames" value="false" />-->
+<!--            <generatedKey column="txn_id" sqlStatement="Mysql" identity="true" />-->
+<!--        </table>-->
     </context>
 </generatorConfiguration>

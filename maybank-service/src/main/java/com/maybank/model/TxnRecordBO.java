@@ -1,12 +1,15 @@
 package com.maybank.model;
 
 public class TxnRecordBO {
+    private int txnId;
     private String accountNumber;
     private long trxAmount;
     private String description;
     private String trxDate;
-    private String time;
+    private String trxTime;
     private String customerId;
+
+    public TxnRecordBO(){}
 
     public TxnRecordBO(String accountNumber, long trxAmount,
                        String description, String trxDate,
@@ -15,8 +18,16 @@ public class TxnRecordBO {
         this.trxAmount = trxAmount;
         this.description = description;
         this.trxDate = trxDate;
-        this.time = time;
+        this.trxTime = time;
         this.customerId = customerId;
+    }
+
+    public int getTxnId() {
+        return txnId;
+    }
+
+    public void setTxnId(int txnId) {
+        this.txnId = txnId;
     }
 
     public String getAccountNumber() {
@@ -51,12 +62,12 @@ public class TxnRecordBO {
         this.trxDate = trxDate;
     }
 
-    public String getTime() {
-        return time;
+    public String getTrxTime() {
+        return trxTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTrxTime(String trxTime) {
+        this.trxTime = trxTime;
     }
 
     public String getCustomerId() {

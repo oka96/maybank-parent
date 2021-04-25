@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/home")
 public class HomeController {
 
-    private final int pageSize = 3;
+    private final int pageSize = 5;
 
     @Autowired
     private TxnRecordService txnRecordService;
@@ -32,7 +32,6 @@ public class HomeController {
         if (pageNumber != null) {
             currentPage = Integer.valueOf(pageNumber);
         }
-        System.out.println("pageNumber " + pageNumber + " accountNumber " + accountNumber);
         List<TxnRecordBO> txnRecords = txnRecordService.getTransaction(customerId, accountNumber, description, currentPage, pageSize);
         int txnCount = txnRecordService.getTransactionCount(customerId, accountNumber, description);
         int totalPages = txnCount / pageSize;
@@ -48,8 +47,6 @@ public class HomeController {
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPage", currentPage);
 
-        TxnRecordBO txnRecordBO = new TxnRecordBO("123", 1000, "des", "111", "222", "111");
-        txnRecordService.insert(txnRecordBO);
         return "home";
     }
 
